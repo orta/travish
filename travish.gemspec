@@ -29,7 +29,8 @@ Gem::Specification.new do |s|
     "bin/travish",
     "lib/travish.rb",
     "test/helper.rb",
-    "test/test_travish.rb"
+    "test/test_travish.rb",
+    "travish.gemspec"
   ]
   s.homepage = "http://github.com/orta/travish"
   s.licenses = ["MIT"]
