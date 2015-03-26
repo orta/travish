@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "travish"
   gem.homepage = "http://github.com/orta/travish"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{ Badly emulates the Travis workflow from a .travis.yml }
+  gem.description = %Q{ Emulates a tiny subset of the travis workflow for running your own CI based on the .travis.yml }
   gem.email = "orta.therox@gmail.com"
   gem.authors = ["Orta Therox"]
   # dependencies defined in Gemfile
