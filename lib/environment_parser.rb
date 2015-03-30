@@ -17,7 +17,7 @@ module Travish
 
     # The resulting environment has after merging
     # the environment from the travis file with
-    # the specified overrides. This method is lacy
+    # the specified overrides. This method is lazy
     # and calculates its result on the first call
     def environment_hash
       @environment_hash ||= build_environment_hash
@@ -25,6 +25,9 @@ module Travish
 
     private
 
+    # Build the environment hash by extracting the environment
+    # variables from the provided Travis Environment and merging
+    # with any provided overrides
     def build_environment_hash
       parsed_variables = {}
       @env.each do |env_row|
@@ -46,6 +49,10 @@ module Travish
       parsed_variables
     end
 
+    # Extract environment variables form a value
+    # The value is expected to be either a hash or a string with
+    # one or more key value pairs on the form
+    #   KEY=VALUE
     def extract_variables(variable)
       return [variable] if variable.is_a? Hash
       return extract_variables_from_string(variable) if variable.is_a? String
@@ -53,6 +60,9 @@ module Travish
       []
     end
 
+    # Extract variables from a string on the form
+    #   KEY1=VALUE1 KEY2="VALUE2"
+    # Optional quoting around the value is allowed
     def extract_variables_from_string(string)
       string.split(/ /).map do |defintion|
         match = defintion.match STRING_REG_EX
