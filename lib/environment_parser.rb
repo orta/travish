@@ -1,5 +1,5 @@
 module Travish
-  # Handle parsing the environment from a .travis.yml file
+  # Handles parsing the environment from a .travis.yml file
   # and merging it with overrides from other source such as
   # ENV
   class EnvironmentParser
@@ -15,7 +15,7 @@ module Travish
       @override_envs ||= []
     end
 
-    # The resulting environment has after merging
+    # The resulting environment hash after merging
     # the environment from the travis file with
     # the specified overrides. This method is lazy
     # and calculates its result on the first call
@@ -26,7 +26,7 @@ module Travish
     private
 
     # Build the environment hash by extracting the environment
-    # variables from the provided Travis Environment and merging
+    # variables from the provided travis environment and merging
     # with any provided overrides
     def build_environment_hash
       parsed_variables = {}
@@ -49,7 +49,7 @@ module Travish
       parsed_variables
     end
 
-    # Extract environment variables form a value
+    # Extract environment variables from a value
     # The value is expected to be either a hash or a string with
     # one or more key value pairs on the form
     #   KEY=VALUE
