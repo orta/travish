@@ -40,5 +40,15 @@ module Travish
                            'KEY3' => 'V3', 'KEY_WITH_QUOTED_VALUE' => 'QUOTED')
       end
     end
+
+    describe 'string environment' do
+      let(:parser) { described_class.new('KEY=VALUE OTHER_KEY="OTHER_VALUE"') }
+
+      it 'produces the correct environment_hash' do
+        hash = parser.environment_hash
+
+        expect(hash).to eq('KEY' => 'VALUE', 'OTHER_KEY' => 'OTHER_VALUE')
+      end
+    end
   end
 end
