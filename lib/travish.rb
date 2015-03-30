@@ -62,6 +62,5 @@ module Travish
     def commands
       (public_methods - Object.public_methods).sort.map{ |c| c.to_sym }
     end
-
   end
 end
