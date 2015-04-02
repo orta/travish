@@ -35,6 +35,8 @@ module Travish
     private
     
     def run_commands array
+      return if array.nil?
+      array = [array] if array.is_a?(String)
       array.each do |command|
         system command
       end
