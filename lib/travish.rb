@@ -40,6 +40,7 @@ module Travish
       return if array.nil?
       array = [array] if array.is_a?(String)
       array.each do |command|
+        puts "> " + command
         system(environment, command)
       end
     end
