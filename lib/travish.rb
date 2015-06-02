@@ -17,7 +17,7 @@ module Travish
     def run
       validate
       travis_file = default_yml.merge local_travis_yml
-      parser = EnvironmentParser.new(travis_file['env']['global'], ENV)
+      parser = EnvironmentParser.new(travis_file.fetch('env', {}).fetch('global', {}), ENV)
 
       run_commands(travis_file["before_install"], parser.environment_hash)
       run_commands(travis_file["install"], parser.environment_hash)
