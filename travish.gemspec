@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/orta/travish"
   s.licenses = ["MIT"]
-  s.rubygems_version = "2.4.6"
+  s.rubygems_version = "2.2.2"
   s.summary = "Badly emulates the Travis workflow from a .travis.yml"
 
   if s.respond_to? :specification_version then
