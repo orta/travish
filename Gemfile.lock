@@ -93,3 +93,6 @@ DEPENDENCIES
   rspec (~> 3.2.0)
   shoulda
   simplecov
+
+BUNDLED WITH
+   1.10.0
