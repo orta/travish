@@ -9,7 +9,8 @@ module Travish
       puts ""
       puts "Travish - emulates the OSX experience for travis."
       puts ""
-      puts "          run  - Runs the .travis.yml."
+      puts "          run     - Runs the .travis.yml."
+      puts "          script  - Runs only the \"script\" portion of .travis.yml."
       puts ""
       puts "                                               ./"
     end
@@ -22,6 +23,14 @@ module Travish
       run_commands(travis_file["before_install"], parser.environment_hash)
       run_commands(travis_file["install"], parser.environment_hash)
       run_commands(travis_file["before_script"], parser.environment_hash)
+      run_commands(travis_file["script"], parser.environment_hash)
+    end
+
+    def script
+      validate
+      travis_file = default_yml.merge local_travis_yml
+      parser = EnvironmentParser.new(travis_file.fetch('env', {}).fetch('global', {}), ENV)
+
       run_commands(travis_file["script"], parser.environment_hash)
     end
 
