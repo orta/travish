@@ -38,9 +38,12 @@ notifications:
     secure: "fXmNnx6XW5OvT/j2jSSHYd3mHwbL+GzUSUSWmZVT0Vx/Ga5jXINTOYRY/9PYgJMqdL8a/L0Mf/18ZZ+tliPlWQ/DnfTz1a3Q/Pf94hfYSGhSGlQC/eXYcpOm/dNOKYQ3sr4tqXtTPylPUDXHeiM2D59ggdlUvVwcALGgHizajPQ="
 ```
 
-Running `travish run` will execute all of your commands and set up any ENV variables that are _not_ secure. Running a full build of your test suite.
+## Things it does
 
-## Things it doesnt do
+* `travish run` will execute all of your commands and set up any ENV variables that are _not_ secure. This will run a full build of your test suite.
+* `travish script` will execute _only the script parts_ of your yml and set up any ENV variables that are _not_ secure. This will run a partial set of your test suite.
+
+## Things it doesn't do
 
 * Support notifications.
 * Support secure env variables.
@@ -62,6 +65,6 @@ I'm open to PRs for any of these things.
 
 ### Copyright
 
-Copyright (c) 2015 Orta Therox & Artsy. See LICENSE.txt for
+Copyright (c) 2015-2017 Orta Therox & Artsy. See LICENSE.txt for
 further details.
 
